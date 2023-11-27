@@ -1,21 +1,28 @@
 import "./hero.css";
+import Lottie from "lottie-react";
+import developerAnimation from "../../animation/developer.json";
+
+import { motion } from "framer-motion";
+
 const Hero = () => {
   return (
-    <section className="hero flex">
-      <div className="left-section  ">
+    <section className="hero flex ">
+      <div className="left-section ">
         <div className="parent-avatar flex">
-          <img src="./me.jpg" className="avatar" alt="" />
+          <motion.img
+            initial={{ transform: "scale(0)" }}
+            animate={{ transform: "scale(1)" }}
+            transition={{ duration: 1 }}
+            src="./me.png"
+            className="avatar"
+            alt=""
+          />
           <div className="icon-verified"></div>
         </div>
 
-        <h1 className="title">
-          Software designer, founder, and amateur astronaut.
-        </h1>
+        <h1 className="title">Software Developer.</h1>
         <p className="sub-title">
-          I’m Ali Hassan, a software designer and entrepreneur based in New York
-          City. I’m the founder and CEO of Planetaria, where we develop
-          technologies that empower regular people to explore space on their own
-          terms.
+          I’m Mohamed Elsebaey, a Software developer.......
         </p>
 
         <div className="all-icons flex">
@@ -26,7 +33,17 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="right-section animation border">animation</div>
+      <motion.div
+        className="right-section animation"
+        initial={{ transform: "scale(0)" }}
+        animate={{ transform: "scale(1)" }}
+        transition={{ duration: 1 }}
+      >
+        <Lottie
+          className="developerAnimation"
+          animationData={developerAnimation}
+        />
+      </motion.div>
     </section>
   );
 };

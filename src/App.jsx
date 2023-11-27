@@ -3,8 +3,18 @@ import Header from "./components/1-header/Header";
 import Main from "./components/3-main/Main";
 import Contact from "./components/4-contact/Contact";
 import Footer from "./components/5-footer/Footer";
+import { useEffect, useState } from "react";
 
 function App() {
+  /* show button Depends on Scroll */
+  const [showScrollBTN, setShowScrollBTN] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setShowScrollBTN(window.scrollY >= 350 ? true : false);
+    });
+  }, []);
+  /* ------------------------------- */
+
   return (
     <div id="up" className="container">
       <Header />
@@ -17,9 +27,11 @@ function App() {
       <div className="divider" />
       <Footer />
 
-    <a href="#up">
-        <button className="icon-keyboard_arrow_up scroll2Top"></button>
-    </a>
+      {showScrollBTN && (
+        <a href="#up">
+          <button className="icon-keyboard_arrow_up scroll2Top"></button>
+        </a>
+      )}
     </div>
   );
 }

@@ -1,28 +1,89 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
 import "./main.css";
+
+const myProject = [
+  {
+    projectTitle: "react Project",
+    category: "react",
+    imgPath: "./imges/1.jpg",
+  },
+  {
+    projectTitle: "HTML & css Project",
+    category: "css",
+    imgPath: "./imges/2.jpg",
+  },
+
+  { projectTitle: "java Project", category: "java", imgPath: "./imges/3.jpg" },
+  {
+    projectTitle: "Next.js Project",
+    category: "next",
+    imgPath: "./imges/4.jpg",
+  },
+];
 const Main = () => {
+  const [active, setActive] = useState("all");
+  const [arr, setArr] = useState(myProject);
+
+  const onActiveHandler = (category) => {
+    setActive(() => category);
+    setArr(
+      category === "all"
+        ? myProject
+        : myProject.filter((item) => item.category === category)
+    );
+  };
+
   return (
     <main className="flex">
-      
       <section className="flex  left-section">
-        <button className="active">all projects</button>
-        <button>HTML & CSS</button>
-        <button>JavaScript</button>
-        <button>React & MUI</button>
-        <button>Node & Express</button>
+        <button
+          onClick={() => onActiveHandler("all")}
+          className={active === "all" ? "active" : null}
+        >
+          all projects
+        </button>
+        <button
+          onClick={() => onActiveHandler("css")}
+          className={active === "css" ? "active" : null}
+        >
+          HTML & CSS
+        </button>
+        <button
+          onClick={() => onActiveHandler("java")}
+          className={active === "java" ? "active" : null}
+        >
+          JavaScript
+        </button>
+        <button
+          onClick={() => onActiveHandler("react")}
+          className={active === "react" ? "active" : null}
+        >
+          React & MUI
+        </button>
+        <button
+          onClick={() => onActiveHandler("next")}
+          className={active === "next" ? "active" : null}
+        >
+          Next Js
+        </button>
       </section>
 
       <section className=" flex right-section">
-        {["aa", "bb", "cc", 1, 7].map((item) => {
+        {arr.map((item) => {
           return (
-            <article key={item} className="  card">
-              <img width={266} src="./1.jpg" alt="" />
+            <motion.article
+              key={item.imgPath}
+              className=" card"
+              initial={{scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.1 }}
+            >
+              <img width={266} src={item.imgPath} alt="" />
 
               <div style={{ width: "266px" }} className="box">
-                <h1 className="title">Landing Page 2 </h1>
-                <p className="sub-title">
-                  Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex
-                  tempore dolor in, accusantium laudantium accusamus.
-                </p>
+                <h1 className="title">{item.projectTitle}</h1>
+                <p className="sub-title">Some Data about the Project.</p>
 
                 <div className="flex icons">
                   <div style={{ gap: "11px" }} className="flex">
@@ -39,7 +100,7 @@ const Main = () => {
                   </a>
                 </div>
               </div>
-            </article>
+            </motion.article>
           );
         })}
       </section>

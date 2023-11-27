@@ -35,7 +35,14 @@ html {
 }
 
 .light {
-  --primary: #fff;
+  --primary: rgb(250, 250, 250);
+  --secondary: rgb(255, 255, 255);
+  --border: rgba(202, 202, 202, 0.518);
+  --title: rgb(39 39 42);
+  --subtitle: rgb(82 82 91);
+  --bgHeader: rgb(253, 253, 253);
+  --blue: rgb(0, 149, 246);
+  --icon-hover: #333;
 }
 
 body {
@@ -92,6 +99,10 @@ button:hover {
 button:active {
   scale: 0.9;
 }
+button:disabled{
+  opacity: 0.4;
+  cursor: not-allowed;
+}
 
 @media (max-width: 1000px) {
   .container {
@@ -105,7 +116,7 @@ button:active {
     margin-left: calc(var(--container-padding) * -1);
   }
 }
-
+/* Scrol Bar Editing */
 ::-webkit-scrollbar {
   width: 0.8rem;
 }
@@ -129,8 +140,10 @@ button:active {
 
 /* for Firefox */
 html {
-  scrollbar-color: #9e4673 #3d4a59;
+  scrollbar-color: #3d4a59  #d4d4d8;
 }
+
+/*------------------------------------*/
 
 .scroll2Top {
   background-color: rgba(25, 118, 210, 0.85);
@@ -142,6 +155,7 @@ html {
   right: 3%;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1.6rem;
 }
 
 .scroll2Top:hover {

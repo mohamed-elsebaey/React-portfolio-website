@@ -17,10 +17,12 @@ section.hero {
 section.hero .parent-avatar.flex {
   align-items: end;
   gap: 0.6rem;
+  min-height: 95px;
 }
 
 section.hero .left-section {
   flex-grow: 1;
+  padding: 2rem 0;
 }
 
 section.hero .icon-verified {
@@ -58,8 +60,8 @@ section.hero .all-icons {
 }
 
 section.hero .all-icons .icon:hover {
-  font-size: 1.4rem;
   transition: 0.3s;
+  scale: 1.1;
   cursor: pointer;
   color: var(--icon-hover);
 }
@@ -67,3 +69,15 @@ section.hero .all-icons .icon:hover {
 /* ===================================
     2. Right Section ==> animation
 ====================================== */
+.right-section .developerAnimation{
+  width: 20rem;
+  /*  علشان اتحكم في المكان
+  translate: 100px 55px;
+  */ 
+}
+
+@media (max-width : 1250px){
+  .right-section .developerAnimation{
+    display: none; 
+  }
+}
