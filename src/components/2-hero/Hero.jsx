@@ -13,7 +13,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero flex">
+    <section id="about" className="hero flex">
       <div className="left-section">
         <div className="parent-avatar flex">
           <motion.img

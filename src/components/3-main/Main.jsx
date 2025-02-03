@@ -79,7 +79,7 @@ const Main = () => {
   };
 
   return (
-    <main className="flex">
+    <main id="projects" className="flex">
       <section className="flex left-section">
         <button
           onClick={() => onActiveHandler("all")}
