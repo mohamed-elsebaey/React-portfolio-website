@@ -79,7 +79,7 @@ header .icon-close {
 }
 
 header .icon-close:hover {
-  font-size: 1.7rem;
+  scale: 1.01;
   color: crimson;
   rotate: 180deg;
 }

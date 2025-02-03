@@ -129,7 +129,7 @@ main section.right-section.flex {
 
 .card .icon-github:hover,
 .card .icon-link:hover {
-  font-size: 1.25rem;
+  scale: 1.01;
   color: var(--icon-hover);
   cursor: pointer;
 }
