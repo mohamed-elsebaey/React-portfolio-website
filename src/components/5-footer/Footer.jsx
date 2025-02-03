@@ -1,24 +1,23 @@
-import React from "react";
 import "./footer.css";
 const Footer = () => {
   return (
     <footer className="flex">
       <ul className="flex">
         <li>
-          <a href="">About</a>
+          <a href="#">About</a>
         </li>
         <li>
-          <a href="">Projects</a>
+          <a href="#">Projects</a>
         </li>
         <li>
-          <a href="">Speaking</a>
+          <a href="#">Speaking</a>
         </li>
         <li>
-          <a href="">Uses</a>
+          <a href="#">Uses</a>
         </li>
       </ul>
 
-      <p>© 2023 Elsebaey. All rights reserved.</p>
+      <p>© 2025 Elsebaey. All rights reserved.</p>
     </footer>
   );
 };
