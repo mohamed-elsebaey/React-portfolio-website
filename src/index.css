@@ -116,7 +116,7 @@ button:disabled{
     margin-left: calc(var(--container-padding) * -1);
   }
 }
-/* Scrol Bar Editing */
+/* Scroll Bar Editing */
 ::-webkit-scrollbar {
   width: 0.8rem;
 }

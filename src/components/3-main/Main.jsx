@@ -4,21 +4,31 @@ import "./main.css";
 
 const myProject = [
   {
-    projectTitle: "react Project",
-    category: "react",
-    imgPath: "./imges/1.jpg",
+    projectTitle: "Alpha Herb",
+    categories: ["next js", "e-commerce", "fullstack"],
+    imgPath: "./imges/alpha-herb.PNG",
+    liveDemo: "https://www.alpha-herbs.com/",
+    github: "https://github.com/mohamed-elsebaey/alpha-herb",
+    subtitle:
+      "E-commerce platform for herbal and natural products built with Next.js",
   },
   {
-    projectTitle: "HTML & css Project",
-    category: "css",
-    imgPath: "./imges/2.jpg",
+    projectTitle: "Egypt Talent",
+    categories: ["next js", "typescript", "tailwind", "web app", "frontend"],
+    imgPath: "./imges/egypt-talent.PNG",
+    liveDemo: "https://egypt-talent.vercel.app/",
+    github: "https://github.com/mohamed-elsebaey/Egypt-Talent",
+    subtitle: "A platform for connecting Egyptian talents with opportunities",
   },
 
-  { projectTitle: "java Project", category: "java", imgPath: "./imges/3.jpg" },
   {
-    projectTitle: "Next.js Project",
-    category: "next",
-    imgPath: "./imges/4.jpg",
+    projectTitle: "EVC Rental",
+    categories: ["next js", "marketplace", "frontend"],
+    imgPath: "./imges/evc-rental.png",
+    liveDemo: "https://evc-rental.vercel.app/",
+    github: "https://github.com/mohamed-elsebaey/evc-rental",
+    subtitle:
+      "Professional platform for selling and renting photography and videography equipment",
   },
 ];
 const Main = () => {
@@ -26,17 +36,17 @@ const Main = () => {
   const [arr, setArr] = useState(myProject);
 
   const onActiveHandler = (category) => {
-    setActive(() => category);
+    setActive(category);
     setArr(
       category === "all"
         ? myProject
-        : myProject.filter((item) => item.category === category)
+        : myProject.filter((item) => item.categories.includes(category))
     );
   };
 
   return (
     <main className="flex">
-      <section className="flex  left-section">
+      <section className="flex left-section">
         <button
           onClick={() => onActiveHandler("all")}
           className={active === "all" ? "active" : null}
@@ -44,28 +54,28 @@ const Main = () => {
           all projects
         </button>
         <button
-          onClick={() => onActiveHandler("css")}
-          className={active === "css" ? "active" : null}
+          onClick={() => onActiveHandler("next js")}
+          className={active === "next js" ? "active" : null}
         >
-          HTML & CSS
-        </button>
-        <button
-          onClick={() => onActiveHandler("java")}
-          className={active === "java" ? "active" : null}
-        >
-          JavaScript
+          Next Js
         </button>
         <button
           onClick={() => onActiveHandler("react")}
           className={active === "react" ? "active" : null}
         >
-          React & MUI
+          React
         </button>
         <button
-          onClick={() => onActiveHandler("next")}
-          className={active === "next" ? "active" : null}
+          onClick={() => onActiveHandler("fullstack")}
+          className={active === "fullstack" ? "active" : null}
         >
-          Next Js
+          Fullstack
+        </button>
+        <button
+          onClick={() => onActiveHandler("e-commerce")}
+          className={active === "e-commerce" ? "active" : null}
+        >
+          E-commerce
         </button>
       </section>
 
@@ -75,7 +85,7 @@ const Main = () => {
             <motion.article
               key={item.imgPath}
               className=" card"
-              initial={{scale: 0 }}
+              initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.1 }}
             >
@@ -83,15 +93,27 @@ const Main = () => {
 
               <div style={{ width: "266px" }} className="box">
                 <h1 className="title">{item.projectTitle}</h1>
-                <p className="sub-title">Some Data about the Project.</p>
+                <p className="sub-title">{item.subtitle}</p>
 
                 <div className="flex icons">
                   <div style={{ gap: "11px" }} className="flex">
-                    <div className="icon-link"></div>
-                    <div className="icon-github"></div>
+                    <a
+                      href={item.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="icon-link"
+                      title="Live Demo"
+                    ></a>
+                    <a
+                      href={item.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="icon-github"
+                      title="Github"
+                    ></a>
                   </div>
 
-                  <a className="link flex" href="">
+                  <a className="link flex" href="#">
                     more
                     <span
                       style={{ alignSelf: "end" }}
